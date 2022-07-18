@@ -6,7 +6,6 @@
         <form @submit.prevent="sendData">
             <enter-login :login="login" @setLogin="setLogin"></enter-login>
             <enter-phone :phone="phone" @setphone="setphone"></enter-phone>
-
             <enter-review :review="review" @setReview="setReview"></enter-review>
             <button class="entry-btn" type="submit" >
                 Отправить
@@ -42,7 +41,7 @@ export default {
             this.review = newReview;
         },
         sendData(){
-            axios.post(`https://google.com/post.json`, {
+            axios.post(`http://127.0.0.1:8000/api/review/`, {
                 name: this.login, phone: this.phone, review: this.review
             })
             .then( response => {
